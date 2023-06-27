@@ -7,7 +7,8 @@ const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
 const REFRESH_TOKEN = '1//04w_jWK1yknKJCgYIARAAGAQSNwF-L9IrSIjUI75Dgmvj-OlFkZfQQ95BzNTo57WCJeqlOF96apDXQx4aAkOxeWqCekIVa8QPQNw';
 
 const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI)
-oAuth2Client.setCredentials({ refesh_token: REFRESH_TOKEN })
+const SCOPES = ['https://www.googleapis.com/auth/gmail.send'];
+oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN, scope: SCOPES })
 
 async function sendMail(){
     try {
